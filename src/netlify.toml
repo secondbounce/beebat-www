@@ -1,0 +1,8 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy   = "default-src 'none'; img-src 'self'; script-src-elem 'self'; style-src-elem 'self';"
+    Referrer-Policy = "no-referrer-when-downgrade"
