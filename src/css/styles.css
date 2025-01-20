@@ -1,0 +1,151 @@
+:root {
+  --color-teal-T1000: #052028;
+  --color-teal-T900: #054861;
+  --color-teal-T800: #0F6A80;
+
+  --color-gray-L700: #33373B;
+  --color-gray-L200: #F2F5F8;
+  --color-gray-D200: #A3A8AC;
+
+  --color-yellow-Y500: #FFB916;
+  --color-yellow-Y400: #FFCF50;
+
+  --color-red-R600: #DB4648;
+
+  --color-logo-bg-light: #fef1e1;
+  --color-logo-bg-dark: #988c8c;
+
+  --body-border: .6em;
+  --body-padding: 3vw;
+  --color-mode: 'light';
+  --background: var(--color-yellow-Y500);
+  --background-alt:  var(--color-yellow-Y400);
+  --text-color: var(--color-gray-L700);
+  --mode-icon: '🌑';
+  --mode-icon-opacity: '1';
+  --border-color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-user-color-scheme]) {
+    --background: var(--color-teal-T1000);
+    --background-alt: var(--color-teal-T900);
+    --text-color: var(--color-gray-L200);
+    --border-color: var(--color-teal-T800);
+    --mode-icon: '🌕';
+    --mode-icon-opacity: .85;
+  }
+}
+
+[data-user-color-scheme='dark'] {
+  --background: var(--color-teal-T1000);
+  --background-alt: var(--color-teal-T900);
+  --text-color: var(--color-gray-L200);
+  --border-color: var(--color-teal-T800);
+  --mode-icon: '🌕';
+  --mode-icon-opacity: .85;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-red-R600);
+  color: var(--color-gray-L200);
+}
+
+html {
+  height: 100vh;
+  padding: var(--body-border);
+  background-color: var(--background-alt);
+}
+
+body {
+  min-height: calc(100vh - var(--body-border)*2);
+  margin: 0;
+  padding: 2.5vw 2.5vw 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  background-color: var(--background);
+  border-radius: 5px;
+  font-size: 112.5%;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.4;;
+  color: var(--text-color);
+}
+
+body.no-js {
+  padding-top: 5vw;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 0 1;
+}
+
+body.no-js .toggle-button {
+  display: none;
+}
+
+.toggle-button {
+  margin-top: auto;
+  padding: .4em .8em;
+  background-color: var(--background-alt);
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.toggle-button::before {
+  content: var(--mode-icon);
+  opacity: var(--mode-icon-opacity);
+}
+
+.toggle-button:focus {
+  outline: none;
+  border: none;
+}
+
+.toggle-button:focus-visible {
+  outline: 2px solid var(--text-color);
+}
+
+main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  border-radius: 50%;
+  display: block;
+  height: 50vh;
+  max-height: min(50vw, 50vh);
+}
+
+.logo-light {
+  background-color: var(--color-logo-bg-light);
+}
+
+.logo-dark {
+  background-color: var(--color-logo-bg-dark);
+}
+
+html:not([data-user-color-scheme]) .logo-dark,
+[data-user-color-scheme='light'] .logo-dark {
+  display: none;
+}
+
+html[data-user-color-scheme='dark'] .logo-light {
+  display: none;
+}
