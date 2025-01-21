@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "app.beebat",
+               "sha256_cert_fingerprints": ["47:D3:19:C0:96:0B:24:4C:4E:72:A4:99:20:C5:FB:61:B9:C6:37:69:81:AE:FB:42:54:9E:8F:66:FC:7D:EA:F8"] }
+}]
